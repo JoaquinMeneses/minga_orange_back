@@ -15,6 +15,6 @@ let schema = new mongoose.Schema(
 );
 
 let collection = "categories"; //debe ser SIEMPRE en plural xq es un conjunto de recursos, documentos, etc y en lo posible en minuscula
-let Category = mongoose.model(schema, collection);
+let Category = mongoose.model(collection, schema);
 
 export default Category;
