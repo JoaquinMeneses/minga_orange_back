@@ -7,6 +7,7 @@ import companyRouter from "./companies.js"
 import mangaRouter from "./mangas.js"
 import chapterRouter from "./chapters.js"
 import categoryRouter from "./categories.js"
+import resourceRouter from "./resources.js"
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -21,5 +22,6 @@ router.use("/companies", companyRouter);
 router.use("/mangas", mangaRouter);
 router.use("/chapters", chapterRouter);
 router.use("/categories", categoryRouter);
+router.use("/resources", resourceRouter);
 
 export default router;
