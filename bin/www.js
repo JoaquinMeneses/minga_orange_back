@@ -4,10 +4,9 @@
  * Module dependencies.
  */
 
-import app from '../app.js';
-import logger from 'debug';
+import app  from '../app.js';
+import debug from 'debug';
 import http from 'http';
-const debug = logger("minga-orange-back:server")
 
 /**
  * Get port from environment and store in Express.
@@ -20,7 +19,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -59,7 +58,7 @@ function onError(error) {
     throw error;
   }
 
-  const bind = typeof port === 'string'
+  var bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
 
@@ -83,8 +82,8 @@ function onError(error) {
  */
 
 function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
+  var addr = server.address();
+  var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);

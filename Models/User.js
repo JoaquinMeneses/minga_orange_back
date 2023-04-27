@@ -1,21 +1,32 @@
-import mongoose from "mongoose";
+import { Code } from "bson";
+import {Schema, Types, model} from "mongoose";
 
-let schema = new mongoose.Schema(
-    {
-        email: { type: String, required: true },
-        password: { type: String, required: true },
-        photo: { type: String, required: true },
-        role: { type: Number, required: true },
-        is_online: { type: Boolean, required: true },
-        is_verified: { type: Boolean, required: true },
-        verify_code: { type: String, required: true },
-    },
-    {
-        timestamps: true,
-    }
-);
+let schema = new Schema({
+        email: {
+            type: String , required:true
+        },
+        password: {
+            type: String, required:true
+        },
+        photo: {
+            type: String, required:true
+        },
+        role: {
+            type: Number, required:true
+        },
+        is_online: {
+            type: Boolean, required:true 
+        },
+        is_verified: {
+            type: Boolean, required: true },
+        verify_code:{
+            type: String, required:true },
+    },{
+        timestamps: true
+    })
 
-let collection = "users"; //debe ser SIEMPRE en plural xq es un conjunto de recursos, documentos, etc y en lo posible en minuscula
-let User = mongoose.model(collection, schema);
+    let collection = "users"
 
-export default User;
+    let User = model(collection, schema)
+
+    export default User

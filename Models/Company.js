@@ -1,24 +1,23 @@
-import mongoose from "mongoose";
+import {Schema, Types, model} from "mongoose"
 
-let schema = new mongoose.Schema(
-    {
-        name: { type: String, required: true },
-        logo: { type: String, required: true },
-        website: { type: String, required: true },
-        description: { type: String, required: false },
-        user_id: {
-            type: mongoose.Types.ObjectId,
-            ref: "users",
-            required: true,
-        },
-        active: { type: Boolean, required: true },
-    },
-    {
-        timestamps: true,
+
+let schema = new Schema({
+    name: {type:String,required:true},
+    logo: {type:String,required:true},
+    website: {type:String,required:true},
+    description : {type:String,required:true},
+    active: {type:Boolean,required:true},
+    user_id: {
+        type: Types.ObjectId,
+        ref: "users",
+        required: true
     }
-);
+},{
+    timestamps: true
+})
 
-let collection = "companies"; //debe ser SIEMPRE en plural xq es un conjunto de recursos, documentos, etc y en lo posible en minuscula
-let Company = mongoose.model(collection, schema);
+let collection = "companies"
 
-export default Company;
+let Company = model(collection, schema)
+
+export default Company

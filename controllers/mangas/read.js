@@ -1,7 +1,7 @@
-const name = "mangas";
-const read = (req, res, next) =>
-    res.status(200).render("index", {
-        title: `/${name}`,
-        subtitle: `Endpoint de ${name}`,
-    });
-export default read;
+let name = "mangas"
+let read = (req, res, next)=>res.status(200).render('index', { 
+    title: '/'+ name.toUpperCase() ,
+    subtitle: "Endpoints of "+ name
+})
+
+export default read

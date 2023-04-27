@@ -5,15 +5,21 @@ import { authors } from './authors.js'
 import { companies } from './companies.js'
 import { categories } from './categories.js'
 import { mangas_v1 } from './mangas_v1.js'
+import { carousels } from './carousels.js'
 import User from '../User.js'
 import Author from '../Author.js'
 import Company from '../Company.js'
 import Category from '../Category.js'
 import Manga from '../Manga.js'
 import Chapter from '../Chapter.js'
+import Carousel from '../Carousel.js'
 
 let newCategories = async(categories) => await Category.insertMany(categories)
 //insertMany es un método de mongoose para insertar muchos documentos en la base de mongo
+
+let newCarousel = async(carousel) => await Carousel.insertMany(carousel)
+//insertMany es un método de mongoose para insertar muchos documentos en la base de mongo
+
 
 let newUsers = async(users) => await User.insertMany(users)
 
@@ -53,6 +59,7 @@ let data = async () => {
     await newUsers(users)
     await newRoles(authors,companies)
     await newMangas(mangas_v1)
+    await newCarousel(carousels)
     console.log('done!')
 }
 
