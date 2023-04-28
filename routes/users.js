@@ -1,14 +1,7 @@
-import express from 'express';
-const router = express.Router();
+import { Router } from "express";
+import read from "../controllers/auth/read.js"
+let router = Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get("/", read)
 
-router.get('/admins', (req, res, next)=> res.status(200).json({
-  success: true,
-  admins: []
-}))
-
-export default router
+export default router;
